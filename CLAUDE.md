@@ -65,10 +65,15 @@ npm install && npm run dev
 - API Client: `client/src/api.js`
 - Backend: `server/main.py`, `server/mock_data.py`
 - Data: `server/data/*.json`
-- Styles: `client/src/App.vue`
+- Styles: `client/src/styles/tokens.css` (design tokens), `client/src/styles/base.css` (shared classes), `client/src/App.vue` (sidebar/top bar shell)
 
 ## Design System
-- Colors: Slate/gray (#0f172a, #64748b, #e2e8f0)
-- Status: green/blue/yellow/red
-- Charts: Custom SVG, CSS Grid for layouts
+- Custom CSS only (Tailwind is not installed). All colors, type, radius, shadow and spacing come from CSS variables in `client/src/styles/tokens.css`; use `var(--...)`, never hardcoded hex or `!important`
+- Layout: fixed left sidebar + sticky top bar (filters, language, profile); sidebar becomes a slide-over at 1024px and below
+- Neutrals: slate (`--slate-50` to `--slate-900`); text `--color-text`, `--color-text-muted`; borders `--color-border`
+- Brand accent: red `--brand` (#E4002B), only for primary buttons, active nav, focus rings and links
+- Status: `--success` green, `--info` blue, `--warning` amber, `--danger` crimson (#b42318, deliberately distinct from brand red), each with `-dark` (use for small text) and `-tint` (backgrounds) variants
+- Font: Inter (`--font-sans`)
+- Shared classes in `base.css`: `.card`, `.stat-card`, `.btn` (`-primary`, `-secondary`, `-ghost`, `-sm`), `.badge`, tables, form controls, `.modal-*`, `.info-grid`, `.row-clickable`; reuse these instead of redefining them in scoped styles
+- Charts: Custom SVG / CSS bars with flat `--chart-*` token colors, CSS Grid for layouts
 - No emojis in UI
