@@ -169,7 +169,7 @@
             <p class="no-backlog-text">{{ t('dashboard.inventoryShortages.noShortages') }}</p>
           </div>
           <div v-else class="table-container">
-            <table>
+            <table class="shortages-table">
               <thead>
                 <tr>
                   <th>{{ t('dashboard.inventoryShortages.orderId') }}</th>
@@ -727,6 +727,27 @@ export default {
 </script>
 
 <style scoped>
+.shortages-table {
+  min-width: 0;
+}
+
+.shortages-table th {
+  white-space: normal;
+  line-height: 1.3;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.shortages-table td {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.shortages-table th:nth-child(3),
+.shortages-table td:nth-child(3) {
+  min-width: 140px;
+}
+
 .page-header {
   margin-bottom: var(--space-5);
 }
@@ -770,7 +791,7 @@ export default {
 /* Order health */
 .order-health-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: var(--space-6);
   align-items: center;
   min-height: 240px;
@@ -866,7 +887,8 @@ export default {
 .order-health-metrics {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-5) var(--space-4);
+  min-width: 0;
 }
 
 .health-metric {
@@ -874,6 +896,7 @@ export default {
   flex-direction: column;
   gap: 0.375rem;
   text-align: center;
+  min-width: 0;
 }
 
 .health-metric-label {
@@ -885,11 +908,12 @@ export default {
 }
 
 .health-metric-value {
-  font-size: var(--text-2xl);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
   font-weight: var(--weight-bold);
   color: var(--color-text-strong);
   letter-spacing: var(--tracking-tight);
   font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }
 
 .metric-good {

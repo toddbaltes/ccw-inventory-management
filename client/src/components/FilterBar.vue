@@ -107,6 +107,7 @@ export default {
 
 .filters-container {
   display: flex;
+  min-width: 0;
   align-items: center;
   gap: var(--space-3);
 }
@@ -115,7 +116,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-2) var(--space-3);
   flex: 1;
   min-width: 0;
 }
@@ -123,7 +124,9 @@ export default {
 .filter-group {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
   min-width: 0;
 }
 
@@ -132,6 +135,7 @@ export default {
   font-weight: var(--weight-semibold);
   color: var(--color-text-muted);
   white-space: nowrap;
+  line-height: 1;
 }
 
 .filter-select {
@@ -146,7 +150,8 @@ export default {
   cursor: pointer;
   transition: border-color var(--transition), box-shadow var(--transition);
   font-weight: var(--weight-medium);
-  min-width: 120px;
+  min-width: 0;
+  width: 8.5rem;
   max-width: 100%;
 }
 
@@ -193,18 +198,6 @@ export default {
 .reset-filters-btn svg {
   width: 18px;
   height: 18px;
-}
-
-@media (max-width: 1279px) {
-  .filter-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-  }
-
-  .filter-group label {
-    line-height: 1;
-  }
 }
 
 @media (max-width: 639px) {

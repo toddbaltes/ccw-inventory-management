@@ -204,7 +204,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  padding: 0 var(--space-4) var(--space-4);
+  padding: var(--space-4) var(--space-4);
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
   z-index: var(--z-sidebar);
@@ -215,7 +215,7 @@ export default {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  height: var(--topbar-height);
+  height: calc(var(--topbar-height) - var(--space-4));
   padding: 0 var(--space-2);
   flex-shrink: 0;
 }
@@ -235,11 +235,12 @@ export default {
 }
 
 .logo h1 {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   font-weight: var(--weight-bold);
   color: var(--color-text-strong);
   letter-spacing: var(--tracking-tight);
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .subtitle {
@@ -303,7 +304,7 @@ export default {
   align-items: center;
   gap: var(--space-4);
   min-height: var(--topbar-height);
-  padding: var(--space-2) var(--space-8);
+  padding: var(--space-2) var(--space-6);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
 }
@@ -391,6 +392,7 @@ export default {
 
 @media (max-width: 639px) {
   .top-bar {
+    position: static;
     flex-wrap: wrap;
   }
 

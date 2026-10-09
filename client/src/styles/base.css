@@ -71,7 +71,7 @@ body {
 /* Stat / KPI cards */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: var(--space-5);
   margin-bottom: var(--space-6);
 }
@@ -104,11 +104,17 @@ body {
 
 .stat-value,
 .kpi-value {
-  font-size: var(--text-4xl);
+  font-size: clamp(1.25rem, 1.6vw, var(--text-4xl));
+  overflow-wrap: break-word;
   font-weight: var(--weight-bold);
   color: var(--color-text-strong);
   letter-spacing: var(--tracking-tight);
   font-variant-numeric: tabular-nums;
+}
+
+.kpi-value {
+  font-size: clamp(1.125rem, 1.5vw, var(--text-3xl));
+  white-space: nowrap;
 }
 
 .kpi-section {
@@ -117,7 +123,7 @@ body {
 
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
   gap: var(--space-4);
 }
 
@@ -206,6 +212,11 @@ td {
   border-top: 1px solid var(--color-surface-hover);
   color: var(--slate-700);
   font-size: var(--text-base);
+}
+
+td strong,
+td.transaction-id {
+  white-space: nowrap;
 }
 
 tbody tr {
