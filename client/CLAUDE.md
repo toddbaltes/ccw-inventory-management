@@ -273,15 +273,16 @@ const chartData = computed(() => {
 </style>
 ```
 
-**Use CSS variables for themes:**
+**Use the design tokens (`src/styles/tokens.css`), never hardcoded colors:**
 ```css
-:root {
-  --primary-color: #3b82f6;
-  --danger-color: #ef4444;
+.button {
+  background: var(--brand);
+  border-radius: var(--radius-md);
 }
 
-.button {
-  background: var(--primary-color);
+.badge-late {
+  color: var(--danger-dark);
+  background: var(--danger-tint);
 }
 ```
 
